@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>668137394276-uth9h79mom17mrta2l310c5n4ipcar1s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.668137394276-uth9h79mom17mrta2l310c5n4ipcar1s</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>668137394276-b92qm7gd4j4b4gk2uekm8e6jt93efckn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyATSNXRqvZDZlufx7VSMw9DumFXMf3uKCo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>668137394276</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.code.smartweb.chitchat</string>
+	<key>PROJECT_ID</key>
+	<string>prefab-bruin-389504</string>
+	<key>STORAGE_BUCKET</key>
+	<string>prefab-bruin-389504.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:668137394276:ios:ee0e8f1c1d4a406940cf71</string>
+</dict>
+</plist>

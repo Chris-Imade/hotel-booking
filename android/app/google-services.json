@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "668137394276",
+    "project_id": "prefab-bruin-389504",
+    "storage_bucket": "prefab-bruin-389504.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668137394276:android:c3e683f67f07a26140cf71",
+        "android_client_info": {
+          "package_name": "com.code.smartweb.chitchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668137394276-b92qm7gd4j4b4gk2uekm8e6jt93efckn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.code.smartweb.chitchat",
+            "certificate_hash": "7dac4af667274f48b1b2acc4f4094a39f8c89646"
+          }
+        },
+        {
+          "client_id": "668137394276-a8pegt2hlmmi0ld3huha5cgtgaudhsr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9upkMejDKp_GvE3TYeFROIJy2806kTnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668137394276-a8pegt2hlmmi0ld3huha5cgtgaudhsr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

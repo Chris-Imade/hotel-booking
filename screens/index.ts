@@ -1,0 +1,9 @@
+export { default as Home } from "./Home/Home";
+export { default as Login } from "./AuthScreens/Login/Login";
+export { default as Register } from "./AuthScreens/Register/Register";
+export { default as Search } from "./Search/Search";
+export { default as SearchLocation } from "./Location/SearchLocation";
+export { default as HotelsNearby } from "./Nearby/HotelsNearby";
+export { default as Notifications } from "./Notifications/Notifications";
+export { default as Schedule } from "./Schedule/Schedule";
+export { default as Detailed } from "./Detailed/Detailed";

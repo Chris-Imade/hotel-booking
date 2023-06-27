@@ -1,0 +1,28 @@
+<CustomButton 
+    border={{ addBorder: true, color: "#D6D6D6" }}
+    txtStyle={[{ color: "white", textAlign: "center" }]} 
+    title={"Button"} 
+    btnStyle={[{ backgroundColor: "#4C4DDC" }]}
+/>
+
+<View style={styles.initialContent}>
+          <Text style={[styles.hotelName]}>{hotelData.name}</Text>
+          <View style={styles.starContainer}>
+            <Image 
+              source={icons.star}
+              style={{
+                width: 20,
+                height: 20
+              }}
+            />
+            <Text style={[styles.hotelName]}>{hotelData.rating}</Text>
+          </View>
+        </View>
+        <View style={{ marginBottom: 8 }}>
+          <Text style={styles.address}>{hotelData.address}</Text>
+        </View>
+        <View style={styles.cost}>
+          <Text style={styles.costOne}>{"$" + hotelData.pricePerNight}</Text>
+          <View style={{ width: 5 }} />
+          <Text style={styles.night}>/night</Text>
+        </View>
