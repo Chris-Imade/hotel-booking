@@ -8,3 +8,4 @@ export { default as Header } from "./PageHeader/Header";
 export { default as Categories } from "./Categories/Categories";
 export { default as Like } from "./Interactions/Like";
 export { default as Carousel } from "./Sliders/Carousel";
+export { default as Utilities } from "./HotelUtilities/Utilities";

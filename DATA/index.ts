@@ -1,3 +1,4 @@
+import { DetailedImageProps, UtilitiesProp } from "../types";
 import { images } from "../assets/images";
 
 export const data = [
@@ -93,3 +94,18 @@ export const popular = [
         rating: "5.0"
     }
 ]
+
+export const imagesData: DetailedImageProps = [
+    { id: 1, image: images.hotel1 },
+    { id: 2, image: images.hotel2 },
+    { id: 3, image: images.hotel3 },
+    { id: 4, image: images.hotel4 },
+    { id: 5, image: images.hotel5 },
+    //   { id: 6, image: images.hotel6 },
+];
+
+export const utilities: UtilitiesProp = [
+    { id: 1, name: "wifi", type: "utility" },
+    { id: 2, name: "breakfast", type: "service" },
+    { id: 3, type: "rating", name: "5.0" },
+];
