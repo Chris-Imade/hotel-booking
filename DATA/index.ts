@@ -109,3 +109,8 @@ export const utilities: UtilitiesProp = [
     { id: 2, name: "breakfast", type: "service" },
     { id: 3, type: "rating", name: "5.0" },
 ];
+
+export const description = {
+    descExcert: "Aston Hotel, Alice Springs NT 0870, Australia is a modern hotel. elegant 5 star hotel overlooking the sea. perfect for a romantic, charming",
+    mainContent: "lorem Aston Hotel, Alice Springs NT 0870, Australia is a modern hotel. elegant 5 star hotel overlooking the sea. perfect for a romantic, charming lorem, ipsum. Dolor something around the corner says I should be watching a movies right now."
+}

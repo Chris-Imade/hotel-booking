@@ -94,7 +94,7 @@ const Card = ({ hotel, type }) => {
           <Text style={styles.address}>{hotel.address}</Text>
         </View>
         <View style={styles.cost}>
-          <Text style={styles.costOne}>{"N" + hotel.price + "K"}</Text>
+          <Text style={styles.costOne}>{"₦" + hotel.price + "K"}</Text>
           <View style={{ width: 5 }} />
           <Text style={styles.night}>/night</Text>
         </View>

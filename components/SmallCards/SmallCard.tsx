@@ -53,7 +53,7 @@ class SmallCard extends Component<SmallCardProp, SmallCardState> {
                     <View style={styles.firstContent}>
                         <Text style={styles.hotelName}>{this.props?.item.name}</Text>
                         <View style={styles.cost}>
-                            <Text style={styles.costOne}>{"N" + this.props?.item.price + "K"}</Text>
+                            <Text style={styles.costOne}>{"₦" + this.props?.item.price + "K"}</Text>
                             {/* <Text style={styles.night}>/night</Text> */}
                         </View>
                     </View>                        

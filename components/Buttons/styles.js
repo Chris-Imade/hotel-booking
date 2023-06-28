@@ -1,10 +1,10 @@
 import { Platform, StyleSheet } from "react-native";
-import { SCREEN_WIDTH } from "../styled";
+import { SCREEN_WIDTH, fonts } from "../styled";
 
 export const styles = StyleSheet.create({
     btnTxt: {
-        fontFamily: "Medium-Jakarta",
-        fontSize: 14
+        fontFamily: fonts.family.bold,
+        fontSize: fonts.text.md
     },
     button: {
         borderRadius: 12,
