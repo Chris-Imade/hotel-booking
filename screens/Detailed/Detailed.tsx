@@ -13,14 +13,15 @@ import { Carousel, CustomButton, Header, Utilities } from "../../components";
 import { colors, fonts } from "../../components/styled";
 import { description, imagesData } from "../../DATA";
 import { icons } from "../../assets/images";
+import { ScreenProps } from "Stacks/types";
 
-const Detailed: React.FC = (props) => {
+const Detailed: React.FC<ScreenProps<"detailed-screen">> = (props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
   return (
     <View style={styles.container}>
       <StatusBar barStyle={"dark-content"} backgroundColor={colors.white} />
       <Header title={"Detail"} />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel data={imagesData} />
         <Utilities />
         {/* Address | Hotel name | Price - Section */}
@@ -99,6 +100,7 @@ const Detailed: React.FC = (props) => {
                 txtStyle={[{ color: "white", textAlign: "center" }]} 
                 title={"Book Now"} 
                 btnStyle={[{ backgroundColor: "#4C4DDC" }]}
+                type={"book-now"}
             />
         </View>
       </ScrollView>

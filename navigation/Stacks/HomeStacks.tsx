@@ -3,6 +3,7 @@ import React from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList, ScreenProps } from "./types";
 import {
+  BookNow,
   Detailed,
   Home,
   HotelsNearby,
@@ -45,6 +46,11 @@ const HomeStack: React.FC = () => {
         options={{ headerShown: false }}
         name="detailed-screen"
         component={Detailed}
+      />
+      <Stack.Screen 
+        options={{ headerShown: false }}
+        name="book-now"
+        component={BookNow}
       />
     </Stack.Navigator>
   );

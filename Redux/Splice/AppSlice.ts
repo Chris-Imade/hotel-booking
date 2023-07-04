@@ -5,6 +5,11 @@ type RecentType = {
   prevSearch: string;
 }
 type TypingProp = string | null;
+type DatesBooked = {
+  startDay: string | undefined;
+  endDay: string | undefined;
+}
+type DarkModeAction = boolean;
 
 // Specify type for initialState
 interface AppState {
@@ -14,6 +19,8 @@ interface AppState {
   recent: Array<RecentType>;
   recentCount: number;
   searching: TypingProp;
+  bookingPeriod: DatesBooked;
+  darkMode: DarkModeAction;
 }
 
 const initialState: AppState = {
@@ -23,6 +30,11 @@ const initialState: AppState = {
   recent: [],
   recentCount: 0,
   searching: null,
+  bookingPeriod: {
+    startDay: undefined,
+    endDay: undefined
+  },
+  darkMode: false
 }
 
 // Specify type for setAccessToken payload
@@ -68,6 +80,12 @@ export const appSlice = createSlice({
     deleteRecent: (state, action: PayloadAction<DeleteRecentProps>) => {
       let sortedRecent = state.recent.filter((item) => item.id !== action.payload);
       state.recent = sortedRecent;
+    },
+    setDateBooked: (state, action: PayloadAction<DatesBooked>) => {
+      state.bookingPeriod = action.payload;
+    },
+    setDarkMode: (state, action: PayloadAction<DarkModeAction>) => {
+      state.darkMode = action.payload;
     }
   }
 })
@@ -79,7 +97,9 @@ export const {
     setCategory,
     addRecent,
     isSearching,
-    deleteRecent
+    deleteRecent,
+    setDateBooked,
+    setDarkMode
  } = appSlice.actions
 
 export default appSlice.reducer;

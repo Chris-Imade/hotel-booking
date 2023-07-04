@@ -3,7 +3,6 @@ import { SCREEN_WIDTH, colors, fonts } from "../styled";
 
 export const styles = StyleSheet.create({
     cardContainer: {
-        backgroundColor: colors.white,
         elevation: 3,
         flexDirection: "row",
         alignItems: "center",
@@ -35,10 +34,10 @@ export const styles = StyleSheet.create({
         color: colors.textGray,
         fontFamily: fonts.family.medium,
         fontSize: fonts.text.sm,
-        marginVertical: 12
+        marginVertical: 8,
+        width: 190
     },
     hotelName: {
-        color: colors.black,
         fontSize: fonts.text.md,
         fontFamily: fonts.family.bold
     },

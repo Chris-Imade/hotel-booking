@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import AppRoot from './navigation/AppRoot';
 import { NativeBaseProvider } from 'native-base';
-import { Detailed } from './screens/index';
+import { Schedule } from './screens/index';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -51,7 +51,7 @@ const App = () => {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <View style={styles.container} onLayout={onLayoutRootView}>
-              <Detailed />
+              <AppRoot />
             </View>
           </PersistGate>
         </Provider>

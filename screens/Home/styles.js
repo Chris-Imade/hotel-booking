@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20
     },
     headerLeft: {
-        color: colors.black,
         fontSize: fonts.text.md,
         fontFamily: fonts.family.bold
     },

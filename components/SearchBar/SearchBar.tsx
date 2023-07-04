@@ -17,10 +17,10 @@ type SearchBarProps = {
 const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     const [query, setQuery] = useState<string>("");
     const searchQuery = useSelector((state: RootState) => state.data.searchParams);
-    const searching = useSelector((state: RootState) => state.data.searching);
     const recent = useSelector((state: RootState) => state.data.recent);
+    const darkMode = useSelector((state: RootState) => state.data.darkMode);
     const { isOpen, onOpen, onClose } = useDisclose();
-    console.log("recent: " + JSON.stringify(recent));
+    // console.log("recent: " + JSON.stringify(recent));
     // console.log("searching: " + searching);
 
     const navigation = useNavigation();
@@ -41,8 +41,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     return (
         <>
             <View 
-                style={styles.searchBar}>
-                <View style={styles.horizontal}>
+                style={[styles.searchBar, { backgroundColor: darkMode ? colors.partialBlack : "rgba(16, 16, 16, 0%)" }]}>
+                <View style={[styles.horizontal, { backgroundColor: darkMode ? colors.partialBlack : "rgba(16, 16, 16, 0%)" }]}>
                     <Image 
                         source={icons.search}
                         resizeMode='contain'
@@ -52,6 +52,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                         placeholder='Search Hotels' 
                         style={styles.searchInput}
                         cursorColor={colors.gray}
+                        placeholderTextColor={colors.textGray}
                         // @ts-ignore
                         defaultValue={searchQuery}
                         onChangeText={text => setQuery(text)}

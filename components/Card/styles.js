@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
         width: 32,
         height: 32,
         borderRadius: 32 / 2,
-        backgroundColor: colors.white,
         justifyContent: "center",
         alignItems: "center",
         shadowColor: colors.gray,
@@ -28,7 +27,6 @@ export const styles = StyleSheet.create({
     },
     cardWrapper: {
         shadowColor: "#000000",
-        backgroundColor: colors.white,
         elevation: 3,
         alignItems: "center",
         borderRadius: 12,
@@ -43,14 +41,13 @@ export const styles = StyleSheet.create({
         flexDirection: "row", justifyContent: "space-between", alignItems: "center"
     },
     hotelName: { 
-        color: colors.black,
         fontSize: fonts.text.md,
         fontFamily: fonts.family.bold
     },
     address: {
-        color: colors.textGray,
         fontFamily: fonts.family.medium,
-        fontSize: fonts.text.sm
+        fontSize: fonts.text.sm,
+        marginLeft: 8
     },
     cost: {
         flexDirection: "row",
@@ -62,6 +59,6 @@ export const styles = StyleSheet.create({
         color: colors.primary,
     },
     night: {
-        color: colors.textGray
+        fontFamily: fonts.family.semi_bold_italic
     }
 })

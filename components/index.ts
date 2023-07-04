@@ -9,3 +9,4 @@ export { default as Categories } from "./Categories/Categories";
 export { default as Like } from "./Interactions/Like";
 export { default as Carousel } from "./Sliders/Carousel";
 export { default as Utilities } from "./HotelUtilities/Utilities";
+export { default as CustomCalendar } from "./Calendar/CustomCalendar";

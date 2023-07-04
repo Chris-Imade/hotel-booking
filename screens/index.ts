@@ -7,3 +7,4 @@ export { default as HotelsNearby } from "./Nearby/HotelsNearby";
 export { default as Notifications } from "./Notifications/Notifications";
 export { default as Schedule } from "./Schedule/Schedule";
 export { default as Detailed } from "./Detailed/Detailed";
+export { default as BookNow } from "./Booking/BookNow";

@@ -1,28 +1,40 @@
 import { Text, View, Pressable } from 'react-native';
-import { Component } from 'react';
+import React from 'react';
 import { styles } from "./styles";
+import { useNavigation } from '@react-navigation/native';
 
-class CustomButton extends Component {
-    constructor(props) {
-        super(props);
-        // this.props = props;
-    }
-  render() {
-    return (
-      <View>
+const CustomButton = (props) => {
+  const navigation = useNavigation();
+
+  return (
+    <View>
+      {props.type === "book-now" ? (
         <Pressable 
-          style={[
-            styles.button, 
-            this.props.border.addBorder ? { 
-              borderWidth:  1, 
-              borderColor: this.props.border.color,
+        onPress={() => navigation.navigate("book-now")}
+        style={[
+          styles.button, 
+          props.border.addBorder ? { 
+            borderWidth:  1, 
+            borderColor: props.border.color,
 
-          } : null, ...this.props.btnStyle]}>
-            <Text style={[styles.btnTxt, ...this.props.txtStyle]}>{this.props.title}</Text>
+        } : null, ...props.btnStyle]}>
+          <Text style={[styles.btnTxt, ...props.txtStyle]}>{props.title}</Text>
+      </Pressable>
+      ) : props.type == "payment" ? (
+        <Pressable
+        onPress={() => alert("Pay Time!!!")}
+        style={[
+          styles.button, 
+          props.border.addBorder ? { 
+            borderWidth:  1,
+            borderColor: props.border.color,
+
+        } : null, ...props.btnStyle]}>
+          <Text style={[styles.btnTxt, ...props.txtStyle]}>{props.title}</Text>
         </Pressable>
-      </View>
-    )
-  }
+      ) : null}
+    </View>
+  )
 }
 
 export default CustomButton;

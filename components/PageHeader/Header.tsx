@@ -6,9 +6,10 @@ import { icons } from "../../assets/images/index";
 
 type HeaderProp = {
     title: string;
+    type?: string;
 };
 
-const Header: React.FC<HeaderProp> = ({ title }) => {
+const Header: React.FC<HeaderProp> = ({ title, type }) => {
 
     const navigation = useNavigation();
 
@@ -16,7 +17,7 @@ const Header: React.FC<HeaderProp> = ({ title }) => {
         <View style={styles.headerContainer}>
             <Pressable
                 style={styles.leftArrPressable}
-                onPress={() => navigation.canGoBack()}>
+                onPress={() => navigation.goBack()}>
                 <Image 
                     source={icons.leftArr}
                     style={{ width: 24, height: 24 }}
@@ -27,11 +28,18 @@ const Header: React.FC<HeaderProp> = ({ title }) => {
             </View>
             <Pressable
                 style={styles.leftArrPressable}
-                onPress={() => navigation.canGoBack()}>
-                <Image 
-                    source={icons.more}
-                    style={{ width: 24, height: 24 }}
-                />
+                onPress={() => {}}>
+                {type === "booking" ? (
+                    <Image 
+                        source={icons.setting}
+                        style={{ width: 24, height: 24 }}
+                    />
+                ) : (
+                    <Image 
+                        source={icons.more}
+                        style={{ width: 24, height: 24 }}
+                    />
+                )}
             </Pressable>
         </View>
     )

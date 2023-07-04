@@ -24,5 +24,9 @@ export const icons = {
     more: require("./icons/more.png"),
     leftArr: require("./icons/left-arr.png"),
     coffee: require("./icons/coffee.png"),
+    setting: require("./icons/setting.png"),
+    date: require("./icons/date.png"),
+    warn: require("./icons/warn.png"),
+    darkModeBell: require("./icons/dark-mode-bell.png"),
 }
 

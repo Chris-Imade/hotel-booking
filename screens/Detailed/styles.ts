@@ -79,6 +79,7 @@ export const styles = StyleSheet.create({
   btnContainer: {
     marginTop: 10,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 30
   }
 });

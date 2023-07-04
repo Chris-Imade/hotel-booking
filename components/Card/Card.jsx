@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { icons, images } from '../../assets/images';
 import { SCREEN_WIDTH, colors, fonts } from '../styled';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 
 const hotelData = {
@@ -16,6 +17,7 @@ const hotelData = {
 
 const Card = ({ hotel, type }) => {
   const [liked, setLiked] = useState(false);
+  const darkMode = useSelector((state) => state.data.darkMode);
 
   const navigation = useNavigation();
 
@@ -32,7 +34,8 @@ const Card = ({ hotel, type }) => {
         { width: type === "Home" ? 257 : type === "Search" ? SCREEN_WIDTH - 40 : null },
         { marginLeft: type === "Home" ? 5 : 0 },
         { marginBottom: type === "Home" ? 10 : type === "Search" ? 20 : 0 },
-        { height: type === "Home" ? 359 : type === "Search" ? (359 + 15) : null }
+        { height: type === "Home" ? 359 : type === "Search" ? (359 + 15) : null },
+        { backgroundColor: darkMode ? colors.partialBlack : "" }
       ]}>
       <ImageBackground 
         source={hotel.image}
@@ -78,7 +81,7 @@ const Card = ({ hotel, type }) => {
         { width: type === "Home" ? 257 : type === "Search" ? "100%" : null }
       ]}>
       <View style={styles.initialContent}>
-        <Text style={[styles.hotelName]}>{hotel.name}</Text>
+        <Text style={[styles.hotelName, { color: darkMode ? colors.white : colors.black }]}>{hotel.name}</Text>
         <View style={styles.starContainer}>
           <Image 
             source={icons.star}
@@ -87,16 +90,26 @@ const Card = ({ hotel, type }) => {
               height: 20
             }}
           />
-          <Text style={[styles.hotelName]}>{hotel.rating}</Text>
+          <Text style={[styles.hotelName, { color: darkMode ? colors.white : colors.black }]}>{hotel.rating}</Text>
         </View>
         </View>
-        <View style={{ marginBottom: 8 }}>
-          <Text style={styles.address}>{hotel.address}</Text>
+        <View style={{ 
+          marginBottom: 8,
+          flexDirection: "row"
+        }}>
+          <Image 
+            source={icons.location}
+            style={{
+              width: 18,
+              height: 18
+            }}
+          />
+          <Text style={[styles.address, { color: darkMode ? colors.darkModeGrayText : colors.textGray }]}>{hotel.address}</Text>
         </View>
         <View style={styles.cost}>
           <Text style={styles.costOne}>{"₦" + hotel.price + "K"}</Text>
           <View style={{ width: 5 }} />
-          <Text style={styles.night}>/night</Text>
+          <Text style={[styles.night, { color: darkMode ? colors.darkModeGrayText : colors.textGray }]}>/night</Text>
         </View>
       </View>
     </Pressable>
