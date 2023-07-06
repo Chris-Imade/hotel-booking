@@ -34,7 +34,7 @@ const initialState: AppState = {
     startDay: undefined,
     endDay: undefined
   },
-  darkMode: false
+  darkMode: true
 }
 
 // Specify type for setAccessToken payload

@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, Text, ScrollView, Image } from "react-native";
-import { SCREEN_WIDTH, fonts } from "../styled";
+import { SCREEN_WIDTH, colors, fonts } from "../styled";
 import { icons } from "../../assets/images";
 import { utilities } from "../../DATA";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/store";
 
 
 
 
 const Utilities: React.FC = () => {
+  const [dark, setDarkTheme] = useState<boolean>();
+  const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
+
     return (
         <ScrollView
           horizontal
@@ -30,16 +37,16 @@ const Utilities: React.FC = () => {
                 paddingVertical: 8,
                 flexDirection: "row",
                 alignItems: "center",
-                backgroundColor: "rgba(245, 245, 255, 0.70)",
+                backgroundColor: dark ? "#101010" : "rgba(245, 245, 255, 0.70)",
                 borderRadius: 8,
               }}
             >
               <Image
                 source={
                   item.name === "wifi"
-                    ? icons.wifi
+                    ? dark ? icons.lightWifi : icons.wifi
                     : item.name === "breakfast"
-                    ? icons.coffee
+                    ? dark ? icons.lightCoffee : icons.coffee
                     : item.type === "rating"
                     ? icons.star
                     : null
@@ -49,7 +56,8 @@ const Utilities: React.FC = () => {
               />
               <Text style={{
                 fontFamily: fonts.family.medium,
-                fontSize: fonts.text.sm
+                fontSize: fonts.text.sm,
+                color: dark ? colors.white : colors.darkModeGrayText
               }}>
                 {item.name == "breakfast"
                   ? "Free Breakfast"

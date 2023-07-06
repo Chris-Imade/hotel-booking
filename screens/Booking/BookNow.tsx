@@ -1,5 +1,5 @@
 import { ScreenProps } from "../../navigation/Stacks/types";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -17,6 +17,10 @@ import { RootState } from "../../Redux/store";
 import { calculateDays } from "../../utils/dayCalculator";
 
 const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
+  const [dark, setDarkTheme] = useState<boolean>();
+  const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
   const bookingPeriod = useSelector(
     (state: RootState) => state.data.bookingPeriod
   );
@@ -25,8 +29,8 @@ const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
   console.log(JSON.stringify(props.navigation));
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar backgroundColor={"white"} barStyle={"dark-content"} />
+    <SafeAreaView style={[styles.container, { backgroundColor: dark ? colors.black : colors.white }]}>
+      <StatusBar backgroundColor={dark ? "black": " white"} barStyle={dark ? "light-content" : "dark-content"} />
       <Header type={"booking"} title="Book Now" />
       <ScrollView showsVerticalScrollIndicator={false} style={{}}>
         <View style={{ marginHorizontal: 20 }}>
@@ -34,17 +38,17 @@ const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
         </View>
         <View style={styles.divider} />
         <View style={styles.totalCostContainer}>
-          <Text style={styles.totalCostTxt}>Total Cost</Text>
+          <Text style={[styles.totalCostTxt, { color: dark ? colors.white : colors.black, textAlign: "center" }]}>Total Cost</Text>
           <View style={styles.innerContainer}>
             <View style={styles.formatTotal}>
-              <Text style={styles.leftText}>State Date</Text>
+              <Text style={[styles.leftText, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>State Date</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Image
                   source={icons.date}
                   style={{ width: 18, height: 18, marginRight: 8 }}
                   resizeMode="contain"
                 />
-                <Text style={styles.rightText}>
+                <Text style={[styles.rightText, { color: dark ? colors.darkModeGrayText : colors.black }]}>
                   {bookingPeriod.startDay === undefined
                     ? "Select Start Date"
                     : bookingPeriod.startDay}
@@ -52,14 +56,14 @@ const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
               </View>
             </View>
             <View style={[styles.innerContainer, styles.formatTotal]}>
-              <Text style={styles.leftText}>End Date</Text>
+              <Text style={[styles.leftText, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>End Date</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <Image
                   source={icons.date}
                   style={{ width: 18, height: 18, marginRight: 8 }}
                   resizeMode="contain"
                 />
-                <Text style={styles.rightText}>
+                <Text style={[styles.rightText, { color: dark ? colors.darkModeGrayText : colors.black }]}>
                   {bookingPeriod.endDay === undefined
                     ? "Select End Date"
                     : bookingPeriod.endDay}
@@ -67,20 +71,20 @@ const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
               </View>
             </View>
             <View style={[styles.innerContainer, styles.formatTotal]}>
-              <Text style={styles.leftText}>Total Nights</Text>
+              <Text style={[styles.leftText, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>Total Nights</Text>
               <Text style={[styles.rightText, { color: colors.primary }]}>
                 {totalNights ? totalNights : 0}
               </Text>
             </View>
             <View style={[styles.innerContainer, styles.formatTotal]}>
-              <Text style={styles.leftText}>Price Per Night</Text>
+              <Text style={[styles.leftText, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>Price Per Night</Text>
               <Text style={[styles.rightText, { color: colors.primary }]}>
                 ₦65K
               </Text>
             </View>
             {/* Total Price */}
             <View style={[styles.innerContainer, styles.formatTotal]}>
-              <Text style={styles.totalCostTxt}>Total Price</Text>
+              <Text style={[styles.totalCostTxt, { color: dark ? colors.white : colors.black }]}>Total Price</Text>
               <Text style={[styles.rightText, { color: colors.primary }]}>
                 {"₦" + (totalNights ? (65 * totalNights) : 65) + "K"}
               </Text>

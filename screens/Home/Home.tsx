@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -25,13 +25,18 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 
 const Home: React.FC<ScreenProps<"home-screen">> = () => {
+  const [dark, setDarkTheme] = useState<boolean>();
   const darkMode = useSelector((state: RootState) => state.data.darkMode);
   const navigation = useNavigation();
 
 
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
+
+
+
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: darkMode ? colors.black : "#ffffff" }]}>
-      <StatusBar barStyle={darkMode ? "light-content" : "dark-content"} backgroundColor={darkMode ? colors.black : colors.white} />
+    <SafeAreaView style={[styles.container, { backgroundColor: dark ? colors.black : "#ffffff" }]}>
+      <StatusBar barStyle={dark ? "light-content" : "dark-content"} backgroundColor={dark ? colors.black : colors.white} />
       {Platform.OS === "web" ? (
         <WebHome />
       ) : (
@@ -48,7 +53,7 @@ const Home: React.FC<ScreenProps<"home-screen">> = () => {
             </View>
 
             <View style={styles.header}>
-              <Text style={[styles.headerLeft, { color: darkMode ? colors.white : colors.white }]}>Nearby your location</Text>
+              <Text style={[styles.headerLeft, { color: dark ? colors.white : colors.black }]}>Nearby your location</Text>
               <TouchableOpacity
                 //  @ts-ignore
                 onPress={() => navigation.navigate("hotels-nearby")}
@@ -74,7 +79,7 @@ const Home: React.FC<ScreenProps<"home-screen">> = () => {
             </View>
 
             <View style={styles.header}>
-              <Text style={[styles.headerLeft, { color: darkMode ? colors.white : colors.white }]}>Popular Destination</Text>
+              <Text style={[styles.headerLeft, { color: dark ? colors.white : colors.black }]}>Popular Destination</Text>
               <Text style={styles.headerRight}>See all</Text>
             </View>
 

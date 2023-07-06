@@ -1,4 +1,4 @@
-import React, { memo, useRef, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import {
   View,
   Text,
@@ -14,12 +14,19 @@ import { colors, fonts } from "../../components/styled";
 import { description, imagesData } from "../../DATA";
 import { icons } from "../../assets/images";
 import { ScreenProps } from "Stacks/types";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/store";
 
 const Detailed: React.FC<ScreenProps<"detailed-screen">> = (props) => {
   const [showMore, setShowMore] = useState<boolean>(false);
+  const [dark, setDarkTheme] = useState<boolean>();
+  const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
+
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={"dark-content"} backgroundColor={colors.white} />
+    <View style={[styles.container, { backgroundColor: dark ? colors.black : colors.white }]}>
+      <StatusBar barStyle={dark ? "light-content" : "dark-content"} backgroundColor={dark ? colors.black : colors.white} />
       <Header title={"Detail"} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel data={imagesData} />
@@ -27,13 +34,13 @@ const Detailed: React.FC<ScreenProps<"detailed-screen">> = (props) => {
         {/* Address | Hotel name | Price - Section */}
         <View style={styles.detailContainer}>
           <View>
-            <Text style={styles.detailTitle}>The Aston Vill Hotel</Text>
+            <Text style={[styles.detailTitle, { color: dark ? colors.white : colors.black }]}>The Aston Vill Hotel</Text>
             <View style={styles.addressContainer}>
               <Image
                 source={icons.location}
                 style={{ width: 18, height: 18 }}
               />
-              <Text style={styles.addrTxt}>
+              <Text style={[styles.addrTxt, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>
                 Alice Springs NT 0870, Australia
               </Text>
             </View>
@@ -41,7 +48,7 @@ const Detailed: React.FC<ScreenProps<"detailed-screen">> = (props) => {
           <View style={styles.cost}>
             <Text style={styles.costOne}>{"₦" + 30 + "K"}</Text>
             <View style={{ width: 5 }} />
-            <Text style={styles.night}>/night</Text>
+            <Text style={[{ color: dark ? colors.darkModeGrayText : colors.textGray }]}>/night</Text>
           </View>
         </View>
         {/* Ends HERE - Address | Hotel name | Price - Section */}
@@ -51,14 +58,14 @@ const Detailed: React.FC<ScreenProps<"detailed-screen">> = (props) => {
           <Text style={styles.descTitle}>Description</Text>
           <View style={styles.excertContainer}>
             {showMore ? (
-              <Text style={styles.descContent}>
+              <Text style={[styles.descContent, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>
                 {description.mainContent + "..."}
                 <Text onPress={() => setShowMore(false)} style={styles.readme}>
                   Show Less
                 </Text>
               </Text>
             ) : (
-              <Text style={styles.descContent}>
+              <Text style={[styles.descContent, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>
                 {description.descExcert + "..."}
                 <Text onPress={() => setShowMore(true)} style={styles.readme}>
                   Read More

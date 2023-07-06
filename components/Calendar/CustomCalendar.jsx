@@ -1,12 +1,17 @@
-import React, { useState, memo } from "react";
+import React, { useState, memo, useEffect } from "react";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { Text, View, TouchableOpacity } from "react-native";
 import { colors, fonts } from "../styled";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setDateBooked } from "../../Redux/Splice/AppSlice";
+import { RootState } from "../../Redux/store";
 
 const CustomCalendar = () => {
   const [selected, setSelected] = useState({});
+  const [dark, setDarkTheme] = useState(true);
+  const darkMode = useSelector((state) => state.data.darkMode);
+
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
   
   const dispatch = useDispatch();
   dispatch(setDateBooked(selected));
@@ -67,7 +72,7 @@ const CustomCalendar = () => {
       "Friday",
       "Saturday",
     ],
-    dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    dayNamesShort: ["S", "M", "T", "W", "T", "F", "S"],
   };
   LocaleConfig.defaultLocale = "en";
 
@@ -80,17 +85,21 @@ const CustomCalendar = () => {
     if (!isFutureDate(dateString)) {
       // Render disabled date component with reduced opacity
       const disabledDateStyle = {
-        backgroundColor: "#FAFAFF",
-        opacity: 0.4,
+        backgroundColor: dark ? colors.partialBlack : '#FAFAFF',
         width: 34,
         height: 34,
         justifyContent: "center",
         alignItems: "center",
       };
+
+      const disabledTextStyle = {
+        opacity: 0.4,
+        color: dark ? colors.darkModeGrayText : colors.textGray
+      }
   
       return (
         <View style={disabledDateStyle}>
-          <Text>{day}</Text>
+          <Text style={disabledTextStyle}>{day}</Text>
         </View>
       );
     }
@@ -195,13 +204,13 @@ const CustomCalendar = () => {
       height: 34,
       justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#FAFAFF"
+      backgroundColor: dark ? colors.partialBlack : '#FAFAFF'
     };
   
     const defaultDayTxtStyle = {
       fontSize: fonts.text.sm,
       fontFamily: fonts.family.bold,
-      color: colors.black,
+      color: dark ? colors.white : colors.black,
     };
   
     // Render default day component
@@ -218,11 +227,11 @@ const CustomCalendar = () => {
     <View>
       <Calendar
         theme={{
-            calendarBackground: '#FAFAFF',
-            textSectionTitleColor: colors.black,
+            calendarBackground: dark ? colors.partialBlack : '#FAFAFF',
+            textSectionTitleColor: dark ? colors.white : colors.black,
             selectedDotColor: '#ffffff',
             arrowColor: colors.primary,
-            monthTextColor: colors.black,
+            monthTextColor: dark ? colors.white : colors.black,
             indicatorColor: colors.primary,
             textDayFontFamily: colors.primary,
             textMonthFontFamily: fonts.family.medium,
@@ -239,7 +248,7 @@ const CustomCalendar = () => {
         dayComponent={({ date }) => renderDay(date)}
         style={{ 
           height: 380, 
-          backgroundColor: "#FAFAFF",
+          backgroundColor: dark ? colors.partialBlack : '#FAFAFF',
           borderRadius: 8
         }}
       />

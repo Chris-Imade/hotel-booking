@@ -4,7 +4,6 @@ import { SCREEN_WIDTH, colors, fonts } from "../../components/styled";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
   },
   scrollContainer: {
     width: SCREEN_WIDTH,
@@ -20,7 +19,6 @@ export const styles = StyleSheet.create({
     marginTop: 16,
   },
   detailTitle: {
-    color: colors.black,
     fontSize: fonts.text.lg,
     fontFamily: fonts.family.bold,
   },
@@ -29,7 +27,6 @@ export const styles = StyleSheet.create({
     marginTop: 8,
   },
   addrTxt: {
-    color: colors.textGray,
     fontSize: fonts.text.sm,
     fontFamily: fonts.family.regular,
     marginLeft: 8,
@@ -43,9 +40,6 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.family.bold,
     color: colors.primary,
   },
-  night: {
-    color: colors.textGray,
-  },
   /* Ends HERE - Address | Hotel name | Price - Section */
   descContainer: {
     marginHorizontal: 20,
@@ -58,7 +52,6 @@ export const styles = StyleSheet.create({
     marginBottom: 12
   },
   descContent: {
-    color: colors.textGray,
     fontSize: fonts.text.sm,
     lineHeight: 20
   },

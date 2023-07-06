@@ -12,11 +12,11 @@ export const styles = StyleSheet.create({
         padding: 8,
         borderRadius: 8,
         borderWidth: 1,
-        borderColor: colors.lightBorder,
         borderStyle: "solid",
-        backgroundColor: colors.white,
         width: 40,
-        height: 40
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center"
     },
     headerTitle: {
         fontSize: fonts.text.lg,

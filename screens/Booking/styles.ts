@@ -9,7 +9,6 @@ import {
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.white,
     },
     divider: {
         backgroundColor: colors.gray,
@@ -34,12 +33,10 @@ export const styles = StyleSheet.create({
         alignItems: "center"
     },
     leftText: {
-        color: colors.textGray,
         fontSize: fonts.text.sm,
         fontFamily: fonts.family.medium
     },
     rightText: {
-        color: colors.black,
         fontSize: fonts.text.md,
         fontFamily: fonts.family.bold
     },

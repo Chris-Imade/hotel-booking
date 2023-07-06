@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { View, Image, Text, ImageSourcePropType, Pressable } from 'react-native';
 import { icons, images } from "../../assets/images/index";
 import { 
@@ -8,7 +8,7 @@ import {
 import { styles } from './styles';
 import { Rating } from 'react-native-ratings';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 
 type SmallCardProp = {
@@ -27,7 +27,12 @@ type SmallCardState = {
 
 const SmallCard = (props: SmallCardProp) => {
     const [rating, setRating] = useState<SmallCardState>({rating: 0});
+    const [dark, setDarkTheme] = useState<boolean>();
     const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => setDarkTheme(darkMode), [darkMode]);
 
     const navigation = useNavigation();
     
@@ -44,7 +49,7 @@ const SmallCard = (props: SmallCardProp) => {
     return (
         <Pressable 
             onPress={handlePress}
-            style={[styles.cardContainer, { backgroundColor: darkMode ? colors.partialBlack : colors.white }]}>
+            style={[styles.cardContainer, { backgroundColor: dark ? colors.partialBlack : colors.white }]}>
             <Image 
                 source={props.item.image}
                 resizeMode='cover'
@@ -56,7 +61,7 @@ const SmallCard = (props: SmallCardProp) => {
             />
             <View style={styles.cardContent}>
                 <View style={styles.firstContent}>
-                    <Text style={[styles.hotelName, { color: darkMode ? colors.white : colors.black }]}>{props?.item.name}</Text>
+                    <Text style={[styles.hotelName, { color: dark ? colors.white : colors.black }]}>{props?.item.name}</Text>
                     <View style={styles.cost}>
                         <Text style={styles.costOne}>{"₦" + props?.item.price + "K"}</Text>
                     </View>
@@ -73,7 +78,7 @@ const SmallCard = (props: SmallCardProp) => {
                             height: 18
                         }}
                     />
-                <Text style={[styles.address, { color: darkMode ? colors.darkModeGrayText : colors.textGray }]}>{props?.item.address}</Text>
+                <Text style={[styles.address, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>{props?.item.address}</Text>
                 </View>
                 <View style={styles.starContainer}>
                     <Image 
@@ -86,7 +91,7 @@ const SmallCard = (props: SmallCardProp) => {
                     <Text style={[
                         styles.hotelName, 
                         { marginLeft: 8 },
-                        { color: darkMode ? colors.white : colors.black }
+                        { color: dark ? colors.white : colors.black }
                     ]}>{props?.item.rating}</Text>
                 </View>
             </View>

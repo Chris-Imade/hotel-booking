@@ -1,8 +1,9 @@
 <CustomButton 
-    border={{ addBorder: true, color: "#D6D6D6" }}
+    border={{ addBorder: false, color: "#D6D6D6" }}
     txtStyle={[{ color: "white", textAlign: "center" }]} 
-    title={"Button"} 
+    title={"Login"} 
     btnStyle={[{ backgroundColor: "#4C4DDC" }]}
+    type={"login"}
 />
 
 <View style={styles.initialContent}>

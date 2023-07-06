@@ -28,5 +28,16 @@ export const icons = {
     date: require("./icons/date.png"),
     warn: require("./icons/warn.png"),
     darkModeBell: require("./icons/dark-mode-bell.png"),
+    darkModeBackArr: require("./icons/dark-mode-back-arr.png"),
+    eyeOpened: require("./icons/eye-opened.png"),
+    eyeClosed: require("./icons/eye-closed.png"),
+    facebookIcon: require("./icons/facebook_icon.png"),
+    iosIcon: require("./icons/ios.png"),
+    googleIcon: require("./icons/google_icon.png"),
+    successMark: require("./icons/Successmark.png"),
+    lightMore: require("./icons/light_more.png"),
+    lightCoffee: require("./icons/light_coffee.png"),
+    lightWifi: require("./icons/light_wifi.png"),
+    lightSettings: require("./icons/light_settings.png"),
 }
 

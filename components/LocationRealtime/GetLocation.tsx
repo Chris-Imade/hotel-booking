@@ -7,7 +7,7 @@ import * as Location from 'expo-location';
 import { LocationObject } from 'expo-location';
 import { PermissionStatus } from 'expo-permissions';
 import { ScreenProps } from 'Stacks/types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Redux/store';
 import { colors } from '../styled';
 
@@ -17,7 +17,12 @@ const GetLocation: React.FC = () => {
   const [address, setAddress] = useState<any>(null);
   const [preciseAddress, setPreciseAddress] = useState<string>("");
   const [location, setLocation] = useState<LocationObject | null>(null);
+  const [dark, setDarkTheme] = useState<boolean>();
   const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => setDarkTheme(darkMode), [darkMode]);
 
   console.log(location);
   console.log(address);
@@ -66,7 +71,7 @@ const GetLocation: React.FC = () => {
   return (
     <View style={styles.locationContainer}>
       <View>
-        <Text style={[styles.title, { color: darkMode ? colors.darkModeGrayText : colors.textGray }]}>Current Location</Text>
+        <Text style={[styles.title, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>Current Location</Text>
         <Pressable
           onPress={() => {
             requestLocationPermission();
@@ -78,7 +83,7 @@ const GetLocation: React.FC = () => {
             resizeMode='contain'
             style={styles.locationIcon}
           />
-          <Text style={[styles.locationTxt, { color: darkMode ? colors.white : colors.partialBlack }]}>{!preciseAddress ? "Your location" : preciseAddress}</Text>
+          <Text style={[styles.locationTxt, { color: dark ? colors.white : colors.partialBlack }]}>{!preciseAddress ? "Your location" : preciseAddress}</Text>
           <Image
             source={icons.downArr}
             resizeMode='contain'

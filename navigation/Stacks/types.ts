@@ -7,7 +7,13 @@ export type RootStackParamList = {
   "hotels-nearby": undefined;
   notification: undefined;
   "detailed-screen": { itemId: string };
-  "book-now": undefined
+  "book-now": undefined;
+  "Login": undefined;
+  "Register": undefined;
+  "Welcome": undefined;
+  "ForgotPassword": undefined;
+  "OTP": undefined;
+  "NewPassword": undefined;
 };
 
 export type ScreenProps<RouteName extends keyof RootStackParamList> = NativeStackScreenProps<

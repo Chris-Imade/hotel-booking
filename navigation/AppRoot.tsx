@@ -11,11 +11,11 @@ import { Search } from '../screens/index';
 
 const AppRoot:React.FC = () => {
   const user = useSelector((state: RootState) => state.data.user);
-  const [userData, setUserData] = useState<string>("");
+  const [userData, setUserData] = useState<Record<string, any> | undefined>();
   
 
   useEffect(() => {
-    setUserData(userData);
+    setUserData(user);
   }, [user]);
 
   if(!user !== undefined) {

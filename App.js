@@ -10,7 +10,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import AppRoot from './navigation/AppRoot';
 import { NativeBaseProvider } from 'native-base';
-import { Schedule } from './screens/index';
+import { BookNow } from './screens/index';
+// import GoogleLogin from './components/Socials/GoogleLogin';
 
 SplashScreen.preventAutoHideAsync();
 

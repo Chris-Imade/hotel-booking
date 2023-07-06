@@ -8,3 +8,8 @@ export { default as Notifications } from "./Notifications/Notifications";
 export { default as Schedule } from "./Schedule/Schedule";
 export { default as Detailed } from "./Detailed/Detailed";
 export { default as BookNow } from "./Booking/BookNow";
+export { default as Welcome } from "./Onboard/Welcome";
+export { default as OTP } from "./AuthScreens/otp/OTP";
+export { default as NewPassword } from "./AuthScreens/NewPassword/NewPassword";
+export { default as ForgotPassword } from "./AuthScreens/ForgotPassword/ForgotPassword";
+export { default as PasswordChanged } from "./AuthScreens/Success/PasswordChanged";
