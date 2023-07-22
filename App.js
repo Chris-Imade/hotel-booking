@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import AppRoot from './navigation/AppRoot';
 import { NativeBaseProvider } from 'native-base';
 import { BookNow } from './screens/index';
-// import GoogleLogin from './components/Socials/GoogleLogin';
+import GoogleLogin from './components/Socials/GoogleLogin';
 
 SplashScreen.preventAutoHideAsync();
 

@@ -10,3 +10,4 @@ export { default as Carousel } from "./Sliders/Carousel";
 export { default as Utilities } from "./HotelUtilities/Utilities";
 export { default as CustomCalendar } from "./Calendar/CustomCalendar";
 export { default as CustomTextInput } from "./CustomInputs/CustomTextInput";
+export { default as SearchFilters } from "./Filters/SearchFilters";

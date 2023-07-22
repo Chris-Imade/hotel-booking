@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ForgotPassword, Login, NewPassword, OTP, Register, Welcome } from "../screens/index";
@@ -16,7 +16,8 @@ const Authentication: React.FC = () => {
         component={Login} 
         options={{ headerShown: false }}
       />
-      <AuthStack.Screen 
+      <AuthStack.Screen
+      // @ts-ignore
         name="Register" 
         // @ts-ignore
         component={Register} 
@@ -46,4 +47,4 @@ const Authentication: React.FC = () => {
   );
 };
 
-export default Authentication;
+export default memo(Authentication);

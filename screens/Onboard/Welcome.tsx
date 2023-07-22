@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 
@@ -10,4 +10,4 @@ const Welcome: React.FC = () => {
     )
 }
 
-export default Welcome;
+export default memo(Welcome);

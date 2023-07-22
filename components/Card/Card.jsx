@@ -1,19 +1,11 @@
 import { Image, ImageBackground, StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native'
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { styles } from "./styles";
 import { icons, images } from '../../assets/images';
 import { SCREEN_WIDTH, colors, fonts } from '../styled';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 
-
-const hotelData = {
-  image: images.hotel1,
-  name: "The Aston Vill Hotel",
-  rating: "5.0",
-  address: "Alice Springs NT 0870, Australia",
-  pricePerNight: 200.7
-}
 
 const Card = ({ hotel, type }) => {
   const [liked, setLiked] = useState(false);
@@ -112,14 +104,9 @@ const Card = ({ hotel, type }) => {
           />
           <Text style={[styles.address, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>{hotel.address}</Text>
         </View>
-        <View style={styles.cost}>
-          <Text style={styles.costOne}>{"₦" + hotel.price + "K"}</Text>
-          <View style={{ width: 5 }} />
-          <Text style={[styles.night, { color: dark ? colors.darkModeGrayText : colors.textGray }]}>/night</Text>
-        </View>
       </View>
     </Pressable>
   )
 }
 
-export default Card;
+export default memo(Card);

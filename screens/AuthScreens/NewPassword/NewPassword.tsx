@@ -1,5 +1,5 @@
 import { CustomButton, Header } from "@components/index";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { View, Text, SafeAreaView, TextInput } from "react-native";
 import { styles } from "./styles";
 import { colors } from "@components/styled";
@@ -43,4 +43,4 @@ const NewPassword: React.FC = () => {
     )
 }
 
-export default NewPassword;
+export default memo(NewPassword);

@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { memo } from "react";
 import { 
     Schedule
 } from "../../screens/index";
@@ -15,4 +15,4 @@ const ScheduleStack: React.FC = () => {
     )
 }
 
-export default ScheduleStack;
+export default memo(ScheduleStack);

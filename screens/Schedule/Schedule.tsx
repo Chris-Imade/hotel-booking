@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useEffect, useState } from "react";
 import { 
     View, 
     Text, 
@@ -12,13 +12,22 @@ import {
     CustomCalendar,
     Header,
 } from "../../components/index";
+import { useSelector } from "react-redux";
+import { RootState } from "../../Redux/store";
+import { colors } from "@components/styled";
 
 const Schedule: React.FC = () => {
+    const [dark, setDark] = useState<boolean>(true);
+    const darkMode = useSelector((state: RootState) => state.data.darkMode);
+
+    useEffect(() => setDark(darkMode), [darkMode, dark]);
+
+
     let histories = [];
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor={"white"} barStyle={"dark-content"} />
+            <StatusBar backgroundColor={dark ? colors.black : colors.white} barStyle={"dark-content"} />
             <Header type={"booking"} title="Schedule" />
             <ScrollView style={styles.scheduleContainer}>
                 <CustomCalendar />
@@ -36,4 +45,4 @@ const Schedule: React.FC = () => {
     )
 }
 
-export default Schedule;
+export default memo(Schedule);

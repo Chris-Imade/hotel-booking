@@ -1,0 +1,1 @@
+export const AUTH_CREATE = "localhost:3000/api/v1/auth/create";

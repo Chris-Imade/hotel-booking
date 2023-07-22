@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { Image, TextInput, TouchableOpacity, View } from "react-native";
 import { colors } from "@components/styled";
 import { styles } from "./styles";
 import { icons } from "../../assets/images";
+import { useDispatch } from "react-redux";
+import { setEmail, setPassword, setUsername } from "../../Redux/Splice/AppSlice";
 
 interface InputProps {
     type: string;
@@ -10,13 +12,8 @@ interface InputProps {
 };
 
 const CustomTextInput: React.FC<InputProps> = ({ type, screen }) => {
-    const [usernameInput, setUsernameInput] = useState<string>("");
-    const [userEmailInput, setUserEmailInput] = useState<string>("");
-    const [userPasswordInput, setUserPasswordInput] = useState<string>("");
     const [visible, setVisible] = useState<boolean>(false);
-    console.log(userEmailInput);
-    console.log(userPasswordInput);
-
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -25,7 +22,7 @@ const CustomTextInput: React.FC<InputProps> = ({ type, screen }) => {
                     placeholder="Enter your email"
                     placeholderTextColor={"#8391A1"}
                     cursorColor={colors.gray}
-                    onChangeText={(text) => setUserEmailInput(text)}
+                    onChangeText={(text) => dispatch(setEmail(text))}
                     style={[styles.textInputs, { marginTop: screen === "login" ? 32 : 0 }]}
                 />
             ) : type === "password" ? (
@@ -36,7 +33,7 @@ const CustomTextInput: React.FC<InputProps> = ({ type, screen }) => {
                         cursorColor={colors.gray}
                         style={[styles.textInputs, { marginBottom: screen === "register" ? 32 : 15 }]}
                         secureTextEntry={!visible}
-                        onChangeText={(text) => setUserPasswordInput(text)}
+                        onChangeText={(text) => dispatch(setPassword(text))}
                     />
                     {visible ? (
                         <TouchableOpacity
@@ -67,7 +64,7 @@ const CustomTextInput: React.FC<InputProps> = ({ type, screen }) => {
                     placeholder="Username"
                     placeholderTextColor={"#8391A1"}
                     cursorColor={colors.gray}
-                    onChangeText={(text) => setUserEmailInput(text)}
+                    onChangeText={(text) => dispatch(setUsername(text))}
                     style={[styles.textInputs, { 
                         marginTop: screen === "register" ? 32 : 0,
                     }]}
@@ -77,4 +74,4 @@ const CustomTextInput: React.FC<InputProps> = ({ type, screen }) => {
     )
 }
 
-export default CustomTextInput;
+export default memo(CustomTextInput);

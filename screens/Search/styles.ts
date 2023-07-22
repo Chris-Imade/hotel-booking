@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
         paddingTop: Platform.OS === "android" ? 45 
         : Platform.OS === "ios" ? 36 
         : undefined,
-        backgroundColor: colors.white
     },
     searchBarContainer: {
         marginHorizontal: 20,
@@ -22,7 +21,6 @@ export const styles = StyleSheet.create({
     },
     resultText: {
         fontFamily: fonts.family.bold,
-        color: colors.black
     },
     layout: {
         flexDirection: "row",

@@ -7,23 +7,33 @@
 />
 
 <View style={styles.initialContent}>
-          <Text style={[styles.hotelName]}>{hotelData.name}</Text>
-          <View style={styles.starContainer}>
-            <Image 
-              source={icons.star}
-              style={{
-                width: 20,
-                height: 20
-              }}
-            />
-            <Text style={[styles.hotelName]}>{hotelData.rating}</Text>
-          </View>
-        </View>
-        <View style={{ marginBottom: 8 }}>
-          <Text style={styles.address}>{hotelData.address}</Text>
-        </View>
-        <View style={styles.cost}>
-          <Text style={styles.costOne}>{"$" + hotelData.pricePerNight}</Text>
-          <View style={{ width: 5 }} />
-          <Text style={styles.night}>/night</Text>
-        </View>
+  <Text style={[styles.hotelName]}>{hotelData.name}</Text>
+  <View style={styles.starContainer}>
+    <Image 
+      source={icons.star}
+      style={{
+        width: 20,
+        height: 20
+      }}
+    />
+    <Text style={[styles.hotelName]}>{hotelData.rating}</Text>
+  </View>
+</View>
+<View style={{ marginBottom: 8 }}>
+  <Text style={styles.address}>{hotelData.address}</Text>
+</View>
+<View style={styles.cost}>
+  <Text style={styles.costOne}>{"$" + hotelData.pricePerNight}</Text>
+  <View style={{ width: 5 }} />
+  <Text style={styles.night}>/night</Text>
+</View>
+
+
+{
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
+    webClientId: '668137394276-a8pegt2hlmmi0ld3huha5cgtgaudhsr1.apps.googleusercontent.com', // client ID of type WEB for your server (needed to verify user ID and offline access)
+    offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
+    forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
+    iosClientId: '668137394276-uth9h79mom17mrta2l310c5n4ipcar1s.apps.googleusercontent.com', // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
+    profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
+}

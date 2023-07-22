@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { ScreenProps } from "Stacks/types";
@@ -11,4 +11,4 @@ const Notifications: React.FC<ScreenProps<"notification">> = () => {
     )
 }
 
-export default Notifications;
+export default memo(Notifications);

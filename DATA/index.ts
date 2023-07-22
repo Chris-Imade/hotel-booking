@@ -114,3 +114,7 @@ export const description = {
     descExcert: "Aston Hotel, Alice Springs NT 0870, Australia is a modern hotel. elegant 5 star hotel overlooking the sea. perfect for a romantic, charming",
     mainContent: "lorem Aston Hotel, Alice Springs NT 0870, Australia is a modern hotel. elegant 5 star hotel overlooking the sea. perfect for a romantic, charming lorem, ipsum. Dolor something around the corner says I should be watching a movies right now."
 }
+
+export const countries = ["Nigeria","Ghana","Cameroon","Egypt","Norway","Denmark","Belgium","Finland","Nertherlands", "Italy"];
+export const catList = ["All Hotels", "Recommended", "Popular", "Near Me"];
+export const sortedList = ["Highest Popularity", "Highest Price", "Lowest Popularity", "Lowest Price"];

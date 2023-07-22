@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text, Image } from "react-native";
 import { CustomButton } from "@components/index";
 import { icons } from "../../../assets/images";
@@ -25,4 +25,4 @@ const PasswordChanged: React.FC = () => {
     )
 }
 
-export default PasswordChanged;
+export default memo(PasswordChanged);

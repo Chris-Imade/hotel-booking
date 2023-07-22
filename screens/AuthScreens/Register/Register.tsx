@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import { icons } from "../../../assets/images";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenProps } from "../../../navigation/Stacks/types";
 
-const Register: React.FC<ScreenProps<"Login">> = () => {
+const Register: React.FC<ScreenProps<"Register">> = () => {
   const navigation = useNavigation();
 
   return (
@@ -84,4 +84,4 @@ const Register: React.FC<ScreenProps<"Login">> = () => {
   );
 };
 
-export default Register;
+export default memo(Register);

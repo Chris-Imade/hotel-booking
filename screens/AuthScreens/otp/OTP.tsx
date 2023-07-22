@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text } from "react-native";
 
 const OTP: React.FC = () => {
@@ -9,4 +9,4 @@ const OTP: React.FC = () => {
     )
 }
 
-export default OTP;
+export default memo(OTP);

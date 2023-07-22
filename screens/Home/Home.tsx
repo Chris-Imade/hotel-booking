@@ -25,12 +25,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 
 const Home: React.FC<ScreenProps<"home-screen">> = () => {
-  const [dark, setDarkTheme] = useState<boolean>();
+  const [dark, setDarkTheme] = useState<boolean>(true);
   const darkMode = useSelector((state: RootState) => state.data.darkMode);
   const navigation = useNavigation();
 
 
-  useEffect(() => setDarkTheme(darkMode), [darkMode]);
+  useEffect(() => setDarkTheme(darkMode), [darkMode, dark]);
 
 
 

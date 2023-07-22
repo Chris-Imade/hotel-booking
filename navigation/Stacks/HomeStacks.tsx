@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { memo } from "react";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParamList, ScreenProps } from "./types";
 import {
@@ -56,4 +56,4 @@ const HomeStack: React.FC = () => {
   );
 };
 
-export default HomeStack;
+export default memo(HomeStack);

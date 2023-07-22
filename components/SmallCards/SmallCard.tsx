@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { Component, memo, useEffect, useState } from 'react';
 import { View, Image, Text, ImageSourcePropType, Pressable } from 'react-native';
 import { icons, images } from "../../assets/images/index";
 import { 
@@ -62,10 +62,7 @@ const SmallCard = (props: SmallCardProp) => {
             <View style={styles.cardContent}>
                 <View style={styles.firstContent}>
                     <Text style={[styles.hotelName, { color: dark ? colors.white : colors.black }]}>{props?.item.name}</Text>
-                    <View style={styles.cost}>
-                        <Text style={styles.costOne}>{"₦" + props?.item.price + "K"}</Text>
-                    </View>
-                </View>                        
+                </View>
                 <View style={{ 
                     marginBottom: 8,
                     flexDirection: "row",
@@ -99,7 +96,7 @@ const SmallCard = (props: SmallCardProp) => {
     );
 }
 
-export default SmallCard;
+export default memo(SmallCard);
 
 {/* Only use this rating inn the details page */}
 {/* <Rating

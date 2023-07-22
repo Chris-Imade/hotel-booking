@@ -21,3 +21,18 @@ export type UserResponse = {
       name: string // full name
     }
 }
+interface StringProp { type: string };
+
+interface FetchResult {
+  data: any;
+  loading: boolean;
+  error: any;
+  reFetch: () => Promise<void>;
+}
+// useFetch
+interface FetchResult<T> {
+  responseData: T | null;
+  loading: boolean;
+  error: any;
+  reFetch?: () => Promise<void>;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Pressable, Text, ScrollView, Image } from "react-native";
 import { SCREEN_WIDTH, colors, fonts } from "../styled";
 import { icons } from "../../assets/images";
@@ -73,4 +73,4 @@ const Utilities: React.FC = () => {
     )
 }
 
-export default Utilities;
+export default memo(Utilities);

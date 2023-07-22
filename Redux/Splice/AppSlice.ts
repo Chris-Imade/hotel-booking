@@ -21,6 +21,11 @@ interface AppState {
   searching: TypingProp;
   bookingPeriod: DatesBooked;
   darkMode: DarkModeAction;
+  countryFilter: string | null;
+  token: TypingProp;
+  username: TypingProp;
+  email: TypingProp;
+  password: TypingProp;
 }
 
 const initialState: AppState = {
@@ -34,7 +39,12 @@ const initialState: AppState = {
     startDay: undefined,
     endDay: undefined
   },
-  darkMode: true
+  darkMode: true,
+  countryFilter: null,
+  token: null,
+  username: null,
+  email: null,
+  password: null
 }
 
 // Specify type for setAccessToken payload
@@ -48,6 +58,7 @@ type SearchQuery = string;
 type CategorySearch = string;
 type RecentPayload = RecentType;
 type DeleteRecentProps = number | null;
+type CountryFilterType = string | null;
 
 
 export const appSlice = createSlice({
@@ -65,7 +76,7 @@ export const appSlice = createSlice({
       state.category = action.payload;
     },
     addRecent: (state, action: PayloadAction<RecentPayload>) => {
-      if(action.payload.prevSearch.length > 4 && state.recent.length != 0) {
+      if(action.payload.prevSearch?.length > 4 && state.recent.length != 0) {
         let duplicates = state.recent.filter((item) => item.prevSearch === action.payload.prevSearch);
         if(duplicates.length == 0) {
           state.recent.push(action.payload);
@@ -86,6 +97,21 @@ export const appSlice = createSlice({
     },
     setDarkMode: (state, action: PayloadAction<DarkModeAction>) => {
       state.darkMode = action.payload;
+    },
+    setCountryFilter: (state, action: PayloadAction<CountryFilterType>) => {
+      state.countryFilter = action.payload;
+    },
+    setToken: (state, action: PayloadAction<CountryFilterType>) => {
+      state.token = action.payload;
+    },
+    setUsername: (state, action: PayloadAction<CountryFilterType>) => {
+      state.username = action.payload;
+    },
+    setEmail: (state, action: PayloadAction<CountryFilterType>) => {
+      state.email = action.payload;
+    },
+    setPassword: (state, action: PayloadAction<CountryFilterType>) => {
+      state.password = action.payload;
     }
   }
 })
@@ -99,7 +125,12 @@ export const {
     isSearching,
     deleteRecent,
     setDateBooked,
-    setDarkMode
+    setDarkMode,
+    setCountryFilter,
+    setToken,
+    setUsername,
+    setEmail,
+    setPassword,
  } = appSlice.actions
 
 export default appSlice.reducer;

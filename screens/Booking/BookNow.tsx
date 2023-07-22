@@ -1,5 +1,5 @@
 import { ScreenProps } from "../../navigation/Stacks/types";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -117,4 +117,4 @@ const BookNow: React.FC<ScreenProps<"book-now">> = (props) => {
   );
 };
 
-export default BookNow;
+export default memo(BookNow);

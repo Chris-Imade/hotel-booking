@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { icons } from '../../assets/images';
 import { styles } from './styles';
@@ -114,4 +114,4 @@ const GetLocation: React.FC = () => {
   );
 };
 
-export default GetLocation;
+export default memo(GetLocation);

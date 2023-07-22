@@ -1,4 +1,4 @@
-import React, { Component, memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import {View, StyleSheet, Pressable, TextInput, Image } from 'react-native';
 import { styles } from './styles';
 import { icons } from '../../assets/images';
@@ -9,6 +9,7 @@ import { addRecent, isSearching, setSearchParams } from '../../Redux/Splice/AppS
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../../Redux/store";
 import { Actionsheet, Box, Button, Center, useDisclose, Text } from 'native-base';
+import { SearchFilters } from '../index';
 
 type SearchBarProps = {
     type: string;
@@ -16,25 +17,37 @@ type SearchBarProps = {
 
 const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
     const [query, setQuery] = useState<string>("");
+    const [dark, setDarkTheme] = useState<boolean>();
+    // @ts-ignore
     const searchQuery = useSelector((state: RootState) => state.data.searchParams);
     const recent = useSelector((state: RootState) => state.data.recent);
     const darkMode = useSelector((state: RootState) => state.data.darkMode);
     const { isOpen, onOpen, onClose } = useDisclose();
     // console.log("recent: " + JSON.stringify(recent));
     // console.log("searching: " + searching);
+    
+    
+    useEffect(() => {
+        setDarkTheme(darkMode);
+        // @ts-ignore
+        dispatch(setSearchParams(searchQuery));
+        // @ts-ignore
+        setQuery(searchQuery);
+    }, [darkMode, searchQuery]);
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
     const handleHomeSubmit = () => {
         dispatch(setSearchParams(query));
+        if(query?.length > 4) dispatch(addRecent({ prevSearch: query, id: recent.length !== 0 ? recent[recent.length - 1].id + 1 : 1 }));
         // @ts-ignore
         navigation.navigate("search", { query });
     }
     
     const handleSearchSubmit = () => {
         dispatch(setSearchParams(query));
-        dispatch(addRecent({ prevSearch: query, id: recent.length !== 0 ? recent[recent.length - 1].id + 1 : 1 }));
+        if(query?.length > 4) dispatch(addRecent({ prevSearch: query, id: recent.length !== 0 ? recent[recent.length - 1].id + 1 : 1 }));
     }
 
     
@@ -50,7 +63,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
                     />
                     <TextInput 
                         placeholder='Search Hotels' 
-                        style={styles.searchInput}
+                        style={[styles.searchInput, { color: dark ? colors.darkModeGrayText : colors.textGray }]}
                         cursorColor={colors.gray}
                         placeholderTextColor={colors.textGray}
                         // @ts-ignore
@@ -86,20 +99,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ type }) => {
             </View>
 
             {/* <Center> */}
-                <Actionsheet isOpen={isOpen} onClose={onClose}>
-                    <Actionsheet.Content>
-                    <Box w="100%" h={60} px={4} justifyContent="center">
-                        <Text fontSize="16" color="gray.500" _dark={{
-                        color: "gray.300"
-                    }}>
-                        Albums
-                        </Text>
-                    </Box>
-                    <Actionsheet.Item>Delete</Actionsheet.Item>
-                    <Actionsheet.Item isDisabled>Share</Actionsheet.Item>
-                    <Actionsheet.Item>Play</Actionsheet.Item>
-                    <Actionsheet.Item>Favourite</Actionsheet.Item>
-                    <Actionsheet.Item>Cancel</Actionsheet.Item>
+                <Actionsheet style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }} isOpen={isOpen} onClose={onClose}>
+                    <Actionsheet.Content style={{ backgroundColor: dark ? colors.partialBlack : colors.white, opacity: 1 }}>
+                        <SearchFilters />
                     </Actionsheet.Content>
                 </Actionsheet>
             {/* </Center> */}

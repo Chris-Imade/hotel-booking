@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import { colors } from "@components/styled";
 import { icons } from "../../../assets/images";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenProps } from "../../../navigation/Stacks/types";
+import GoogleLogin from "../../../components/Socials/GoogleLogin";
 
 const Login: React.FC<ScreenProps<"Login">> = () => {
   const navigation = useNavigation();
@@ -60,13 +61,7 @@ const Login: React.FC<ScreenProps<"Login">> = () => {
                 resizeMode={"contain"}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.socialLoginContainer}>
-            <Image 
-                source={icons.googleIcon}
-                style={{ width: 26, height: 26 }}
-                resizeMode={"contain"}
-            />
-          </TouchableOpacity>
+          <GoogleLogin />
           <TouchableOpacity style={styles.socialLoginContainer}>
             <Image 
                 source={icons.iosIcon}
@@ -91,4 +86,4 @@ const Login: React.FC<ScreenProps<"Login">> = () => {
   );
 };
 
-export default Login;
+export default memo(Login);

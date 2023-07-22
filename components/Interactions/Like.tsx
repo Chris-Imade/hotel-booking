@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { Image, Pressable } from "react-native";
 import { icons } from "../../assets/images";
 import { colors } from "../styled";
@@ -42,4 +42,4 @@ const Like: React.FC = () => {
     )
 }
 
-export default Like;
+export default memo(Like);

@@ -3,7 +3,7 @@ apply plugin: "com.facebook.react"
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
-import com.android.build.OutputFile
+apply plugin: 'com.android.build.OutputFile'
 
 def projectRoot = rootDir.getAbsoluteFile().getParentFile().getAbsolutePath()
 def expoDebuggableVariants = ['debug']
@@ -198,6 +198,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
+    implementation(project(":react-native-community_google-signin"))
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";

@@ -1,5 +1,5 @@
 import { CustomButton, CustomTextInput, Header } from "@components/index";
-import React from "react";
+import React, { memo } from "react";
 import { View, Text, SafeAreaView, StatusBar, TouchableOpacity } from "react-native";
 import { colors } from "@components/styled";
 import { styles } from "./styles";
@@ -47,4 +47,4 @@ const ForgotPassword: React.FC = () => {
     )
 }
 
-export default ForgotPassword;
+export default memo(ForgotPassword);
